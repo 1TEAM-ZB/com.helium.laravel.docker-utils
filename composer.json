@@ -1,0 +1,29 @@
+{
+    "name": "helium/docker-utils",
+    "description": "A set of helpful docker utilities for laravel projects",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Nick Rupert",
+            "email": "nick@heliumservices.com"
+        }
+    ],
+    "require": {
+        "illuminate/console": "^8.0|^9.0|^10.0|^11.0",
+        "orchestra/testbench": "^6.4|^7.0|^8.0|^9.0"
+    },
+	"autoload": {
+		"psr-4": {
+			"Helium\\DockerUtils\\": "src/",
+			"Helium\\DockerUtils\\Tests\\": "tests/"
+		}
+	},
+	"extra": {
+		"laravel": {
+			"providers": [
+				"Helium\\DockerUtils\\DockerUtilsServiceProvider"
+			]
+		}
+	}
+}

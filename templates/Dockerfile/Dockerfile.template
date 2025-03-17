@@ -1,0 +1,16 @@
+FROM heliumservices/base-nginx-php-fpm-node:latest
+
+WORKDIR /code
+
+{{DATABASE}}
+
+# Copy docker-config to container
+COPY ./docker-config/php.ini /usr/local/etc/php/conf.d/docker-php.ini
+COPY ./docker-config/php.ini /usr/local/etc/php/php.ini
+COPY ./docker-config/entrypoint.sh /usr/local/bin/entrypoint.sh
+
+{{MAILHOG}}
+
+# Run Entrypoint Script
+RUN ["chmod", "+x", "/usr/local/bin/entrypoint.sh"]
+RUN ["/usr/local/bin/entrypoint.sh"]
